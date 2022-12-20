@@ -20,11 +20,17 @@ export default {
   name: "FlipCard",
   data() {
     return {
+      // 卡牌动画实例
       flipInstance: {},
+      // 海报实例
       posterInstance: {},
+      // 事件中心实例
       eventInstance: new EventStore(),
+      // 卡牌id
       flipId: `flip-${uuidv4()}`,
+      // 海报id
       posterId: `poster-${uuidv4()}`,
+      // 控制当前卡牌是否翻转
       flipActive: false
     }
   },
@@ -41,10 +47,12 @@ export default {
     console.log(`#${flipId}`)
     this.flipInstance = new Flip(`#${flipId}`)
     this.posterInstance = new Poster(`#${posterId}`, Poster.getRealPx(249.2), Poster.getRealPx(348.4))
+    // 注册事件
     this.eventInstance.on('click-button', function () {
       console.log('I click it')
     })
     this.posterInstance.canvasEle.addEventListener('click', (e)=> {
+      // 派发事件
       this.posterInstance.isClickClickableArea(e.pageX, e.pageY).forEach(eventType=> this.eventInstance.emit(eventType))
     })
   }

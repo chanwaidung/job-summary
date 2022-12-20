@@ -11,12 +11,20 @@ class Flip {
         if(typeof this.animationEl === "undefined" || !this.animationEl) throw new Error()
     }
 
+    /**
+    *@name: play
+    *@args: void
+    *@return: void
+    *@description: 触发卡牌翻转动画
+    *@author: WE!D
+    *@time: 2022/12/20
+    */
     play() {
         try {
             const { animationEl, position } = this
             const { top, left, width, height } = animationEl.getBoundingClientRect()
             const diffX = position.centerX - left - width/2, diffY = position.centerY - top - height/2
-            console.log('animationEl: ', animationEl)
+            // 下一帧绘制后触发动画
             requestAnimationFrame(function () {
                 animationEl.setAttribute(
                     'style',
@@ -28,6 +36,16 @@ class Flip {
             console.log(e)
         }
     }
+
+    /**
+    *@name: destroy
+    *@args: void
+    *@return: void
+    *@description: 销毁卡牌
+    *@author: WE!D
+    *@time: 2022/12/20
+    */
+    destroy() {}
 }
 
 export default Flip
