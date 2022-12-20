@@ -1,0 +1,100 @@
+<template>
+  <section class="card-wrapper">
+    <main :id="flipId" class="card-item" @click.stop="flipIt">
+      <!--适配高倍屏，css像素设置为逻辑像素的一半-->
+      <canvas :id="posterId" class="card-face card-item__front"></canvas>
+      <main class="card-face card-item__back">
+        我是背面
+      </main>
+    </main>
+  </section>
+</template>
+
+<script>
+import Flip from "@/views/draw/components/flip";
+import Poster from "@/views/draw/components/poster";
+import EventStore from "@/views/draw/components/event";
+
+export default {
+  name: "FlipCard",
+  data() {
+    return {
+      flipInstance: {},
+      posterInstance: {},
+      eventInstance: new EventStore(),
+      flipId: `flip-${new Date().getTime()}`,
+      posterId: `poster-${new Date().getTime()}`,
+      flipActive: false
+    }
+  },
+  methods: {
+    flipIt() {
+      if(this.flipActive) return
+      this.flipInstance.play()
+      this.posterInstance.draw()
+      this.flipActive = true
+    }
+  },
+  mounted() {
+    const { flipId, posterId } = this
+    this.flipInstance = new Flip(`#${flipId}`)
+    this.posterInstance = new Poster(`#${posterId}`, Poster.getRealPx(249.2), Poster.getRealPx(348.4))
+    this.eventInstance.on('click-button', function () {
+      console.log('I click it')
+    })
+    console.log(this.flipInstance.canvasEle);
+    this.posterInstance.canvasEle.addEventListener('click', (e)=> {
+      this.posterInstance.isClickClickableArea(e.pageX, e.pageY).forEach(eventType=> this.eventInstance.emit(eventType))
+    })
+  }
+}
+</script>
+
+<style scoped>
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.card-item {
+  display: flex;
+  /*使正反卡牌居中, 方便变换*/
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /*将元素样式设置为3d效果*/
+  transform-style: preserve-3d;
+  /*以中心点为变换中心*/
+  transform-origin: center center;
+  /*开启过渡动画*/
+  transition: all 1s;
+}
+.card-face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  /*将3d背部效果设置为不可见*/
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+.card-item__front {
+  color: #42b983;
+  background-color: #ffffff;
+  /*想象A、B两张纸重叠在一起A在上, B在下*/
+  /*此时AB为整体, 翻转两纸, 翻转结束后, B的背面朝上*/
+  /*显然, 这是不对的, 我们期望展示的是B的正面*/
+  transform: rotateY(180deg);
+}
+.card-item__back {
+  background-color: #42b983;
+}
+</style>
