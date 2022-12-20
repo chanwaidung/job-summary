@@ -12,12 +12,21 @@ class Flip {
     }
 
     play() {
-        const { animationEl, position } = this
-        const { top, left, width, height } = animationEl.getBoundingClientRect()
-        const diffX = position.centerX - left - width/2, diffY = position.centerY - top - height/2
-        requestAnimationFrame(function () {
-            animationEl.style=`transform: rotateY(180deg) translate3d(-${diffX}px, ${diffY}px, 0)`
-        })
+        try {
+            const { animationEl, position } = this
+            const { top, left, width, height } = animationEl.getBoundingClientRect()
+            const diffX = position.centerX - left - width/2, diffY = position.centerY - top - height/2
+            console.log('animationEl: ', animationEl)
+            requestAnimationFrame(function () {
+                animationEl.setAttribute(
+                    'style',
+                    `transform: rotateY(180deg) translate3d(${diffX < 0 ? Math.abs(diffX) : -diffX }px, ${diffY}px, 0);z-index: 9999`
+                )
+            })
+        }
+        catch (e) {
+            console.log(e)
+        }
     }
 }
 

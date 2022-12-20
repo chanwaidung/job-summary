@@ -1,6 +1,14 @@
 <template>
   <main class="draw-index">
     <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
+    <flip-card></flip-card>
   </main>
 </template>
 
@@ -9,14 +17,6 @@ import FlipCard from "@/views/draw/components/FlipCard";
 export default {
   name: "draw",
   components: {FlipCard},
-  data() {
-    return {
-      animationInstance: null
-    }
-  },
-  methods: {
-
-  }
 }
 </script>
 

@@ -14,6 +14,7 @@
 import Flip from "@/views/draw/components/flip";
 import Poster from "@/views/draw/components/poster";
 import EventStore from "@/views/draw/components/event";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   name: "FlipCard",
@@ -22,8 +23,8 @@ export default {
       flipInstance: {},
       posterInstance: {},
       eventInstance: new EventStore(),
-      flipId: `flip-${new Date().getTime()}`,
-      posterId: `poster-${new Date().getTime()}`,
+      flipId: `flip-${uuidv4()}`,
+      posterId: `poster-${uuidv4()}`,
       flipActive: false
     }
   },
@@ -32,17 +33,17 @@ export default {
       if(this.flipActive) return
       this.flipInstance.play()
       this.posterInstance.draw()
-      this.flipActive = true
+      this.flipActive = false
     }
   },
   mounted() {
     const { flipId, posterId } = this
+    console.log(`#${flipId}`)
     this.flipInstance = new Flip(`#${flipId}`)
     this.posterInstance = new Poster(`#${posterId}`, Poster.getRealPx(249.2), Poster.getRealPx(348.4))
     this.eventInstance.on('click-button', function () {
       console.log('I click it')
     })
-    console.log(this.flipInstance.canvasEle);
     this.posterInstance.canvasEle.addEventListener('click', (e)=> {
       this.posterInstance.isClickClickableArea(e.pageX, e.pageY).forEach(eventType=> this.eventInstance.emit(eventType))
     })
@@ -52,6 +53,8 @@ export default {
 
 <style scoped>
 .card-wrapper {
+  /*父元素display设置为flex, 使子元素zIndex生效*/
+  display: flex;
   position: relative;
   width: 100%;
   height: 100%;
