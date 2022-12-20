@@ -48,6 +48,10 @@
 
 ## 三、实现
 
+先上最终实现效果图：
+
+![3D卡牌翻转效果](https://github.com/chanwaidung/job-summary/blob/main/static/flip-animation-min.gif)
+
 `views/draw/draw.vue`实现9宫格布局：
 
 ```javascript
