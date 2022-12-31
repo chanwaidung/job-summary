@@ -12,7 +12,7 @@ name: "index"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .home-index {
   padding: 24px 24px;
 }
