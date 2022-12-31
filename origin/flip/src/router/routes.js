@@ -2,12 +2,12 @@ export const routes = [
     {
         path: '/',
         name: 'Home',
-        component: ()=> import('@/views/home/index.vue'),
+        component: ()=> import('../views/home'),
     },
     {
         path: '/draw',
         name: 'Draw',
-        component: ()=> import('@/views/draw/draw.vue'),
+        component: ()=> import('../views/draw/draw.vue'),
     }
 ]
 

@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import Flip from "@/views/draw/components/flip";
-import Poster from "@/views/draw/components/poster";
-import EventStore from "@/views/draw/components/event";
+import Flip from "./flip";
+import Poster from "./poster";
+import EventStore from "./event";
 import { v4 as uuidv4 } from 'uuid';
 
 export default {

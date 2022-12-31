@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import FlipCard from "@/views/draw/components/FlipCard";
+import FlipCard from "./components/FlipCard";
 export default {
   name: "draw",
   components: {FlipCard},
