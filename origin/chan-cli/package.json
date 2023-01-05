@@ -1,0 +1,23 @@
+{
+  "name": "chan-cli",
+  "version": "1.0.0",
+  "description": "The cli tool for manage front-end program",
+  "main": "main.js",
+  "type": "module",
+  "bin": {
+    "chan": "main.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "chan waidung",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.2.0",
+    "commander": "^9.4.1",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^9.1.4",
+    "ora": "^6.1.2",
+    "shelljs": "^0.8.5"
+  }
+}
