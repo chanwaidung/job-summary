@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import { singleton } from '../util/index.js';
 
 const { log } = console
 
@@ -20,8 +21,10 @@ class Log {
     }
 
     error(text) {
-        log(chalk.redBright`[❌ ERROR]: ${text}`)
+        log(chalk.redBright`[❌ ERROR]: ${text}`);
     }
 }
 
-export default Log;
+const singletonLog = singleton(Log);
+
+export { singletonLog as Log };

@@ -27,6 +27,10 @@ fs.writeFileSync("./package.json", JSON.stringify(pkg), { encoding: 'utf-8' });
 
 git.commit(message).push();
 
+success('代码提交、发布成功');
+
 git.tag(version, `release: the v${version} is release`).push('tag');
+
+success('代码标签标记成功、发布标签成功');
 
 shell.exec('npm publish');
