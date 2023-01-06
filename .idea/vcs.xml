@@ -2,7 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/chan-code-template" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/chan-template" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/chan-vue-template" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/origin/chan-cli/chan-template" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/origin/chan-cli/vue-h5-template" vcs="Git" />
   </component>
