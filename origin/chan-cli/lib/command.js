@@ -4,7 +4,7 @@ import { Command } from 'commander';
 // https://github.com/nodejs/help/issues/3221
 import { createRequire } from "module";
 import Ask  from "./ask.js";
-import { INIT_QUESTION_LIST } from "../config/question.js"
+import { INIT_QUESTION_LIST } from "../constant/question.js"
 import Git from "./git.js";
 import {TEMPLATE_QUESTION_LIST} from "../constant/template.js";
 

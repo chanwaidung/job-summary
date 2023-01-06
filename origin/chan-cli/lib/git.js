@@ -18,11 +18,6 @@ async function downloadRepo(repo, programName) {
 }
 
 class Git {
-
-    signIn() {
-        shell.exec('git clone ')
-    }
-
     async clone(repo, programName) {
         spinner.start();
         await downloadRepo(`direct:${repo}`, programName);
@@ -32,8 +27,28 @@ class Git {
         log(`   1.cd ${programName}`);
         log(`   2.npm i`);
         log(`   3.npm run start`);
+        return this;
     }
 
+    commit(message) {
+        shell.exec('git add ./');
+        shell.exec(`git commit -m "${message}"`);
+        return this;
+    }
+
+    tag(version, message) {
+        shell.exec(`git tag ${version} -m "${message}"`);
+        return this;
+    }
+
+    push(type) {
+        if(type === 'tag') {
+            shell.exec(`git push --tags`);
+            return this;
+        }
+        shell.exec(`git push`);
+        return this;
+    }
 }
 
 export default Git

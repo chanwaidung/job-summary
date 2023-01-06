@@ -1,4 +1,4 @@
-import { TEMPLATE_QUESTION_LIST } from "../constant/template.js";
+import { TEMPLATE_QUESTION_LIST } from "./template.js";
 
 export const INIT_QUESTION_LIST = [
     {
@@ -14,5 +14,3 @@ export const INIT_QUESTION_LIST = [
         choices: TEMPLATE_QUESTION_LIST,
     },
 ];
-
-// export const
