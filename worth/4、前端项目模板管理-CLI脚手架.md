@@ -40,7 +40,7 @@
 
 通过`shelljs`实现npm包发布、git代码操作提交、发布、标记。
 
-```shell```
+```
 chan-cli
 ├── config //npm、git配置目录
 ├── constant // 交互式代码目录
