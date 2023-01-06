@@ -1,4 +1,5 @@
 import shell from "shelljs";
+import "../global.js";
 import Ask from "../lib/ask.js";
 import { VERSION_QUESTION_LIST } from "../constant/version.js";
 import fs from "fs";

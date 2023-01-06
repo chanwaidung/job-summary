@@ -1,4 +1,4 @@
-import Log from "./lib/log.js";
+import { Log } from "./lib/log.js";
 const { log, warn, success, error } = new Log();
 
 global.log = log
