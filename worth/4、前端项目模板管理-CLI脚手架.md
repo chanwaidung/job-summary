@@ -85,7 +85,6 @@ chan-cli
     "shelljs": "^0.8.5"
   }
 }
-
 ```
 
 ```shell
@@ -149,7 +148,6 @@ global.log = log
 global.warn = warn
 global.success = success
 global.error = error
-
 ```
 
 Log模块是基于`chalkjs`实现的控制台输出文本。`singletonLog`是基于Proxy实现的单例模式构造函数。
@@ -185,7 +183,6 @@ class Log {
 const singletonLog = singleton(Log);
 
 export { singletonLog as Log };
-
 ```
 
 ```javascript
@@ -198,7 +195,6 @@ export function singleton(className) {
         }
     })
 }
-
 ```
 
 Ask模块是基于`inquirerjs`实现的控制台交互类。
@@ -260,7 +256,6 @@ class Git {
 }
 
 export default Git
-
 ```
 
 Ask类实现控制台交互式操作，调用starts函数会在node控制台出现交互式界面，供用户选择、输入等操作。
@@ -296,7 +291,6 @@ class Ask {
 }
 
 export default Ask;
-
 ```
 
 ## 四、总结
