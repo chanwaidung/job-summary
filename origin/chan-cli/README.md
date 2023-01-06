@@ -8,7 +8,7 @@
 ![CLI-拉取项目效果预览展示](https://github.com/chanwaidung/job-summary/blob/main/static/cli-pull-coding.gif?raw=true)
 
 2.将CLI半自动发布到npm仓库、git仓库，实现版本更新
-
+![CLI-拉取项目效果预览展示](https://github.com/chanwaidung/job-summary/blob/main/static/cli-release-code.gif?raw=true)
 
 ## 安装
 
