@@ -1,4 +1,3 @@
-import shell from "shelljs";
 import "../global.js";
 import Ask from "../lib/ask.js";
 import { VERSION_QUESTION_LIST } from "../constant/version.js";
@@ -30,8 +29,9 @@ git.commit(message).push();
 
 success('代码提交、发布成功');
 
-git.tag(version, `release: the v${version} is release`).push('tag');
+git.tag(version, `release: 发布新版本v${version}`).push('tag');
 
-success('代码标签标记成功、发布标签成功');
+success(`代码标签标记成功、发布标签成功: v${version}`);
 
-shell.exec('npm publish');
+// TODO: 请先配置.npmrc文件中的token，否则将导致报错
+// shell.exec('npm publish');
