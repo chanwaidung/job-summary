@@ -29,3 +29,4 @@ git.commit(message).push();
 
 git.tag(version, `release: the v${version} is release`).push('tag');
 
+shell.exec('npm publish');
